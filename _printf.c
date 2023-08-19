@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 	/*Handling the case asked in the task*/
 	if (!format || !format[0])
 	{
-		return (0);
+		return (-1);
 	}
 	while (*format)
 	{
@@ -28,7 +28,21 @@ int _printf(const char *format, ...)
 			if (*format == 'c')
 			{
 				case_c = va_arg(args, int); /*code ascii (ints)*/
-				charPrinter(case_c);
+				counter += charPrinter(case_c);
+			}
+			else if (*format == 's')
+			{
+				*case_s = va_arg(args, char *);
+				counter += str_Handler(case_s);
+			}
+			else if (*format == '%')
+			{
+				charPrinter('%');
+				counter++;
+			}
+			else
+			{
+				charPrinter(*format);
 				counter++;
 			}
 		}
