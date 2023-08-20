@@ -1,10 +1,10 @@
 #include "main.h"
-
 /**
  * _printf - Does printing magic
- * @format: format parameter
- * Return: number of characters printed
+ * @format: format param
+ * Return: number of stuff that we printed
  */
+
 int _printf(const char *format, ...)
 {
 	int counter = 0;
@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 			switch (*format)
 			{
 				case 'c':
-					counter += charPrinter(va_arg(argList, int)); /*ascii code int*/
+					counter += charPrinter(va_arg(argList, int));
 					break;
 				case 's':
 					counter += str_handler(va_arg(argList, char *));
@@ -29,10 +29,10 @@ int _printf(const char *format, ...)
 					counter += int_handler(va_arg(argList, int));
 					break;
 				default:
+					counter++;
 					charPrinter('%');
 					counter++;
-					charPrinter(*format);
-					counter++;
+					putchar(*format);
 					break;
 			}
 		}
@@ -45,4 +45,3 @@ int _printf(const char *format, ...)
 	}
 	return (counter);
 }
-

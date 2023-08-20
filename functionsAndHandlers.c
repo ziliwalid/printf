@@ -31,41 +31,41 @@ int str_handler(char *str)
 /**
   * int_handler - prints a string either neg or pos
   * @n: num pram
-  * Return: num of ints 
+  * Return: num of ints
   */
 int int_handler(int n)
 {
 	int counter = 0;
+	int temp = n;
+	int numDigits = 0;
+	int i;
+
+
 	if (n == 0)
 	{
-		return charPrinter('0'); // Print '0' directly and return
+		return (charPrinter('0')); /*Print '0' directly and return*/
 	}
-	
 	if (n < 0)
 	{
 		charPrinter('-');
 		counter++;
 		n = -n;
 	}
-	
-	int temp = n;
-	int numDigits = 0;
-	int i;
-	
 	while (temp > 0)
 	{
 		temp /= 10;
 		numDigits++;
 	}
-	
 	while (numDigits > 0)
 	{
 		int divisor = 1;
+
 		for (i = 1; i < numDigits; i++)
 		{
 			divisor *= 10;
 		}
 		int digit = n / divisor;
+
 		charPrinter(digit + '0');
 		counter++;
 		n %= divisor;
