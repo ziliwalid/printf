@@ -7,6 +7,6 @@
 
 int charPrinter(char c);
 int _printf(const char *format, ...);
-
+int str_handler(char *str);
 
 #endif
