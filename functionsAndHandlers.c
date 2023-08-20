@@ -1,8 +1,7 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * charPrinter - sums nums
+ * charPrinter - our own personal putchar
  * @c: char param
  * Return: int
  */
@@ -12,16 +11,19 @@ int charPrinter(char c)
 }
 
 /**
- *  - Prints the contents of the buffer if it exist
- * @buffer: Array of chars
+ * str_Handler - Prints a string if not null
+ * @str: string param
+ * Return: returns the number of the chars in the str
  */
 
-int str_Handler(char *str)
+int str_handler(char *str)
 {
-	int i =0; /*str position*/
-	if (str == NULL)
+	int i = 0;
+
+	while (str[i])
 	{
-		 str_Handler("(null)");
-		 return str
+		charPrinter(str[i]);
+		i++;
 	}
+	return (i);
 }
