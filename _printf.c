@@ -24,6 +24,10 @@ int _printf(const char *format, ...)
 				case 's':
 					counter += str_handler(va_arg(argList, char *));
 					break;
+				case 'd':
+				case 'i':
+					counter += int_handler(va_arg(argList, int));
+					break;
 				default:
 					charPrinter('%');
 					counter++;

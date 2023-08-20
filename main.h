@@ -8,5 +8,6 @@
 int charPrinter(char c);
 int _printf(const char *format, ...);
 int str_handler(char *str);
+int int_handler(int n);
 
 #endif
